@@ -50,3 +50,17 @@ def test_delete_book():
 
     response = client.get("/books/3")
     assert response.status_code == 404
+
+
+# def test_retrieve_book():
+#     test_retrieve_book = {
+#         "id": 1,
+#         "title": "The Hobbit: An Unexpected Journey",
+#         "author": "J.R.R. Tolkien",
+#         "publication_year": 1937,
+#         "genre": "Fantasy",
+#     }
+#     response = client.put("/books/4", json=test_retrieve_book)
+#     assert response.status_code == 200
+#     data = response.json()
+#     assert data["title"] == "The Hobbit: An Unexpected Journey"

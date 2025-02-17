@@ -62,3 +62,11 @@ async def delete_book(book_id: int) -> None:
     db.delete_book(book_id)
     return JSONResponse(status_code=status.HTTP_204_NO_CONTENT, content=None)
 
+
+@router.get("/api/v1/books/{book_id}")
+def retrieve_book(book_id: int):
+    # Find the book by ID
+    book = next((book for book in books_db if book["id"] == book_id), None)
+    if not book:
+        raise HTTPException(status_code=404, detail="Book not found")
+    return book
